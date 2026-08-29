@@ -53,7 +53,7 @@
         <video class="background-video" src="trajectory-bg.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video><div class="backdrop"></div><div class="frost"></div>
         <div class="content">
           <div class="status"><span>12:30</span><span class="status-right"><span class="signal"><i></i><i></i><i></i><i></i></span><span class="wifi">◔</span><span class="battery">70</span></span></div>
-          <div class="topbar"><button class="menu-button" id="settingsButton" aria-label="打开设置"><i></i><i></i></button><div class="mark" aria-label="轨迹"><svg viewBox="0 0 44 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 15c6-11 14-11 20 0s14 11 18 0" stroke="rgba(255,255,255,.86)" stroke-width="1.4" stroke-linecap="round"/><path d="M3 20c6-7 13-7 20 0s14 7 18 0" stroke="rgba(181,229,255,.7)" stroke-width="1" stroke-linecap="round"/><circle cx="23" cy="15" r="2.5" fill="rgba(255,255,255,.95)"/></svg></div><button class="top-action" id="quietButton" aria-label="今天先不提醒">☾</button></div>
+          <div class="topbar"><button class="menu-button" id="settingsButton" aria-label="打开设置"><i></i><i></i></button></div>
 
           <section class="view" id="nowView" aria-label="此刻">
             <div class="hero">
@@ -106,7 +106,6 @@
       $('#respondButton').addEventListener('click',()=>{const text=$('#thoughtInput').value;$('#responseText').textContent=responseFor(text,state.mode);$('#responseCard').classList.remove('is-hidden');$('#saveButton').dataset.text=text.trim();if(!text.trim())toast('先写下一句话或几个词')});
       $('#saveButton').addEventListener('click',()=>{const text=$('#saveButton').dataset.text||$('#thoughtInput').value.trim();if(!text){toast('还没有可以留下的内容');return}const now=new Date(),iso=now.toISOString().slice(0,10);state.records.unshift({id:`record-${Date.now()}`,date:iso,time:now.toTimeString().slice(0,5),text,settle:settleFor(text,state.mode),tags:['#此刻'],status:'暂时安放'});persist();$('#thoughtInput').value='';$('#responseCard').classList.add('is-hidden');$('#composerHint').textContent='已留下。你可以继续说，也可以先离开。';toast('这声回声已留下')});
       $('#quietResponseButton').addEventListener('click',()=>{$('#responseCard').classList.add('is-hidden');$('#composerHint').textContent='已安静下来。今天不需要继续。'});
-      $('#quietButton').addEventListener('click',()=>toast('今天先不提醒，你随时可以回来'));
       $$('.mode').forEach(b=>b.addEventListener('click',()=>{state.mode=b.dataset.mode;$$('.mode').forEach(x=>x.classList.toggle('is-selected',x===b));$('#composerHint').textContent=b.dataset.mode==='recall'?'回看过去需要在设置中允许历史回声。':'默认只回应，不催促。你也可以先记录，不回应。'}));
       $$('.tool').forEach(b=>b.addEventListener('click',()=>{if(b.id==='tagButton'){toast('标签功能已预留，会帮助你找到相似的回声');return}b.classList.toggle('is-selected');toast(`${b.getAttribute('aria-label')}${b.classList.contains('is-selected')?'已选择':'已取消'}`)}));
       $$('.archive-tab').forEach(b=>b.addEventListener('click',()=>{state.archiveMode=b.dataset.archiveMode;renderArchive()}));
