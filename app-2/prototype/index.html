@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#dfe7e5" />
+    <link rel="icon" type="image/png" href="./assets/trajectory-mark.png" />
+    <link rel="apple-touch-icon" href="./assets/trajectory-mark.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="轨迹" />
+    <title>轨迹 · 自画像的回声</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body data-theme="mist" data-hand="right">
+    <main class="app-shell">
+      <header class="topbar">
+        <button class="icon-button" id="settingsButton" aria-label="打开设置" title="设置">☰</button>
+        <div class="brand-lockup">
+          <span class="brand-mark"><img src="./assets/trajectory-mark.png" alt="轨迹图标" /></span>
+          <div>
+            <p class="eyebrow">自画像的回声</p>
+            <h1>轨迹</h1>
+          </div>
+        </div>
+        <button class="icon-button ghost" id="quietButton" aria-label="今天先不提醒" title="今天先不提醒">☾</button>
+      </header>
+
+      <nav class="tabs" aria-label="主导航">
+        <button class="tab is-active" data-tab="now">此刻</button>
+        <button class="tab" data-tab="story">故事</button>
+      </nav>
+
+      <section class="view" id="nowView" data-view="now">
+        <div class="welcome-copy">
+          <p class="kicker" id="greeting">现在的你，想把什么留下来？</p>
+          <h2>不用马上解决，先说给自己听。</h2>
+          <p class="muted">每一次记录，都是给未来的一声回声。</p>
+        </div>
+
+        <section class="composer glass-panel" aria-label="记录此刻">
+          <label class="sr-only" for="thoughtInput">写下此刻的想法</label>
+          <textarea id="thoughtInput" rows="5" placeholder="可以写一句话，也可以只写几个词……"></textarea>
+          <div class="composer-toolbar">
+            <div class="input-tools" role="group" aria-label="输入方式">
+              <button class="tool-button" data-input="text" aria-label="文字输入">T</button>
+              <button class="tool-button" data-input="voice" aria-label="语音输入">◉</button>
+              <button class="tool-button" data-input="image" aria-label="添加图片">▧</button>
+              <button class="tool-button optional" data-input="video" aria-label="添加视频">▷</button>
+              <button class="tool-button" id="tagButton" aria-label="添加标签">＋</button>
+            </div>
+            <button class="primary-button" id="respondButton">听见我</button>
+          </div>
+          <p class="composer-hint" id="composerHint">默认只回应，不催促。你也可以选择“先记录，不回应”。</p>
+        </section>
+
+        <div class="response-modes" aria-label="回应模式">
+          <button class="mode-chip is-selected" data-mode="reflect">只听我说</button>
+          <button class="mode-chip" data-mode="break_down">帮我拆一步</button>
+          <button class="mode-chip" data-mode="recall">帮我回看过去</button>
+        </div>
+
+        <section class="response-card glass-panel is-hidden" id="responseCard" aria-live="polite">
+          <div class="response-label"><span class="pulse-dot"></span> 一声回声</div>
+          <p id="responseText"></p>
+          <div class="response-actions">
+            <button class="secondary-button" id="saveButton">留下这声回声</button>
+            <button class="text-button" id="quietResponseButton">先安静一会儿</button>
+          </div>
+        </section>
+
+        <div class="small-note">今天先不提醒 · 不统计连续天数 · 不要求完成</div>
+      </section>
+
+      <section class="view is-hidden" id="storyView" data-view="story">
+        <div class="story-header">
+          <div>
+            <p class="kicker">你的故事</p>
+            <h2>回到某一个时刻。</h2>
+          </div>
+          <button class="secondary-button report-button" id="reportButton">月度回望</button>
+        </div>
+
+        <div class="filters glass-panel">
+          <button class="filter-button" id="dateFilter">最近 30 天⌄</button>
+          <button class="filter-button" id="tagFilter">所有标签⌄</button>
+        </div>
+
+        <div class="story-list" id="storyList"></div>
+        <section class="empty-state glass-panel" id="emptyState">
+          <div class="empty-orbit">◌</div>
+          <h3>故事还在变长</h3>
+          <p>你留下的每一次小小回应，都会在这里找到位置。</p>
+          <button class="text-button" id="backToNow">写下第一声回声 →</button>
+        </section>
+      </section>
+
+      <footer class="bottom-note">私密记录 · 只属于你</footer>
+    </main>
+
+    <div class="modal-backdrop is-hidden" id="settingsModal" role="presentation">
+      <section class="settings-sheet" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+          <div>
+            <p class="kicker">偏好与安全</p>
+            <h2 id="settingsTitle">设置</h2>
+          </div>
+          <button class="icon-button" id="closeSettings" aria-label="关闭设置">×</button>
+        </div>
+        <div class="settings-group">
+          <div class="setting-row">
+            <div><strong>常用手</strong><span>让常用按钮更靠近顺手的一侧</span></div>
+            <div class="segmented" role="group" aria-label="常用手">
+              <button data-hand-choice="left">左手</button><button class="is-active" data-hand-choice="right">右手</button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div><strong>界面背景</strong><span>低饱和色块，保持阅读舒适</span></div>
+            <div class="theme-picker" role="group" aria-label="界面背景">
+              <button class="theme-swatch mist is-active" data-theme-choice="mist" aria-label="雾青"></button>
+              <button class="theme-swatch sand" data-theme-choice="sand" aria-label="暖沙"></button>
+              <button class="theme-swatch dusk" data-theme-choice="dusk" aria-label="暮蓝"></button>
+            </div>
+          </div>
+          <div class="setting-row">
+            <div><strong>主动提醒</strong><span>默认关闭，只在你主动设置后提醒</span></div>
+            <label class="switch"><input type="checkbox" id="reminderToggle" /><span></span></label>
+          </div>
+          <div class="setting-row">
+            <div><strong>允许回看过去</strong><span>让 AI 在你请求时引用旧的回声</span></div>
+            <label class="switch"><input type="checkbox" id="historyToggle" /><span></span></label>
+          </div>
+        </div>
+        <div class="privacy-callout"><span>⌁</span><p>你的记录默认私密。云同步、AI 分析和媒体理解都可以分别控制。</p></div>
+        <button class="primary-button full-width" id="doneSettings">完成</button>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
