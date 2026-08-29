@@ -33,7 +33,7 @@
     .status-right{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:0}.signal{display:inline-flex;align-items:flex-end;gap:2px;height:12px}.signal i{display:block;width:3px;border-radius:1px;background:currentColor}.signal i:nth-child(1){height:4px}.signal i:nth-child(2){height:7px}.signal i:nth-child(3){height:10px}.signal i:nth-child(4){height:13px}.wifi{font-size:12px}.battery{padding:2px 5px;border:1px solid currentColor;border-radius:4px;font-size:8px}
     .topbar{display:flex;align-items:center;justify-content:space-between;margin-top:10px}.menu-button{width:40px;height:38px;background:transparent;display:flex;flex-direction:column;justify-content:center;gap:7px;padding-left:4px}.menu-button i{display:block;height:1.5px;background:rgba(255,255,255,.84);border-radius:2px;box-shadow:0 1px 4px rgba(0,0,0,.28)}.menu-button i:first-child{width:17px}.menu-button i:last-child{width:11px;opacity:.68}.mark{display:grid;place-items:center;width:31px;height:24px;opacity:.85}.mark svg{width:31px;height:24px}.top-action{width:40px;height:38px;background:transparent;color:rgba(255,255,255,.76);font-size:22px}
     .view{min-height:0;flex:1;display:flex;flex-direction:column;animation:appear .34s ease both}.is-hidden{display:none!important}@keyframes appear{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
-    .hero{flex:1;display:flex;align-items:center;justify-content:center;padding:0 0 36px}.hero-inner{width:92%;max-width:340px}.date-button{display:flex;align-items:flex-start;background:transparent;color:var(--ink);padding:12px 0;margin-bottom:12px;text-align:left;text-shadow:0 2px 8px rgba(0,0,0,.28)}.year{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.04em;margin:2px 8px 0 1px}.date{font:300 39px/.86 Arial,sans-serif;letter-spacing:-.06em}.date-meta{display:flex;flex-direction:column;gap:5px;margin:1px 0 0 10px;font:300 11px/1 Arial,sans-serif}.date-meta strong{font-size:14px;letter-spacing:.04em}.date-meta span:last-child{font-size:10px;color:rgba(255,255,255,.76)}
+    .hero{flex:1;display:flex;align-items:center;justify-content:center;padding:0 0 36px}.hero-inner{width:92%;max-width:340px;position:relative}.glass-source{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;pointer-events:none}.date-button{display:flex;align-items:flex-start;background:transparent;color:var(--ink);padding:12px 0;margin-bottom:12px;text-align:left;text-shadow:0 2px 8px rgba(0,0,0,.28);position:relative;z-index:1}.year{writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.04em;margin:2px 8px 0 1px}.date{font:300 39px/.86 Arial,sans-serif;letter-spacing:-.06em}.date-meta{display:flex;flex-direction:column;gap:5px;margin:1px 0 0 10px;font:300 11px/1 Arial,sans-serif}.date-meta strong{font-size:14px;letter-spacing:.04em}.date-meta span:last-child{font-size:10px;color:rgba(255,255,255,.76)}
     .composer{border:1px solid rgba(255,255,255,.38);border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.08) 42%,rgba(126,202,255,.15));box-shadow:inset 0 1px 0 rgba(255,255,255,.68),inset 0 -1px 0 rgba(255,255,255,.2),0 16px 34px rgba(3,24,60,.18);backdrop-filter:blur(19px) saturate(1.1);-webkit-backdrop-filter:blur(19px) saturate(1.1);padding:16px 17px 12px}.composer textarea{display:block;width:100%;min-height:86px;resize:none;outline:0;border:0;background:transparent;color:var(--ink);font:400 16px/1.55 "PingFang SC","Microsoft YaHei",sans-serif}.composer textarea::placeholder{color:rgba(255,255,255,.74)}.composer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px}.tools{display:flex;align-items:center;gap:6px}.tool{width:29px;height:29px;border-radius:10px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.74);font-size:12px;border:1px solid rgba(255,255,255,.12);transition:.2s}.tool:hover,.tool.is-selected{background:rgba(159,215,255,.28);color:#fff;transform:translateY(-1px)}.respond{min-height:32px;padding:0 13px;border-radius:999px;background:rgba(62,142,228,.72);border:1px solid rgba(255,255,255,.34);font-size:11px;box-shadow:0 6px 14px rgba(0,0,0,.14)}.respond:hover{background:rgba(89,165,241,.92)}.hint{margin:10px 0 0;color:rgba(255,255,255,.55);font-size:10px;line-height:1.45}.mode-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 0}.mode{padding:6px 9px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);font-size:9px;color:rgba(255,255,255,.62)}.mode.is-selected{background:rgba(168,222,255,.24);color:#fff;border-color:rgba(198,235,255,.32)}
     .response{margin-top:13px;padding:13px 14px;border-radius:17px;background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.07));border:1px solid rgba(255,255,255,.24);box-shadow:0 14px 28px rgba(0,0,0,.14);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);animation:appear .3s ease both}.response-label{display:flex;align-items:center;gap:7px;color:var(--accent-strong);font-size:10px;letter-spacing:.08em;margin-bottom:8px}.pulse{width:7px;height:7px;border-radius:50%;background:var(--accent-strong);box-shadow:0 0 0 5px rgba(159,215,255,.14)}.response p{margin:0 0 11px;font:400 13px/1.6 "Noto Serif SC","STSong",serif;color:rgba(255,249,241,.94)}.response-actions{display:flex;gap:12px;align-items:center}.secondary,.text-button{font-size:10px}.secondary{padding:7px 10px;border-radius:10px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.24)}.text-button{padding:3px 0;background:transparent;color:rgba(255,255,255,.7)}
     .bottom-nav{height:49px;display:flex;align-items:center;justify-content:space-around;margin-top:auto;color:rgba(255,255,255,.45);font-family:"Noto Serif SC","STSong",serif;font-size:17px}.nav-button{width:50%;height:43px;background:transparent;color:inherit;position:relative}.nav-button.is-active{color:rgba(255,255,255,.96)}.nav-button.is-active:after{content:"";position:absolute;left:50%;bottom:1px;width:22px;height:1px;transform:translateX(-50%);background:rgba(255,255,255,.72)}
@@ -58,7 +58,7 @@
           <section class="view" id="nowView" aria-label="此刻">
             <div class="hero">
               <div class="hero-inner">
-                <button class="date-button" id="dateButton" aria-label="打开留存"><span class="year">2026</span><span class="date">08/29</span><span class="date-meta"><strong>SAT</strong><span id="liveTime">15:24</span></span></button>
+                <video class="glass-source" src="trajectory-bg.mp4" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video><button class="date-button" id="dateButton" aria-label="打开留存"><span class="year">2026</span><span class="date">08/29</span><span class="date-meta"><strong>SAT</strong><span id="liveTime">15:24</span></span></button>
                 <section class="composer" aria-label="记录此刻"><label class="sr-only" for="thoughtInput">写下此刻的想法</label><textarea id="thoughtInput" placeholder="此刻发生了什么？"></textarea><div class="composer-toolbar"><div class="tools"><button class="tool" data-input="text" aria-label="文字输入">T</button><button class="tool" data-input="voice" aria-label="语音输入">◉</button><button class="tool" data-input="image" aria-label="添加图片">▧</button><button class="tool" data-input="video" aria-label="添加视频">▷</button><button class="tool" id="tagButton" aria-label="添加标签">＋</button></div><button class="respond" id="respondButton">听见我</button></div><p class="hint" id="composerHint">默认只回应，不催促。你也可以先记录，不回应。</p></section>
                 <div class="mode-row" aria-label="回应模式"><button class="mode is-selected" data-mode="reflect">只听我说</button><button class="mode" data-mode="break_down">帮我拆一步</button><button class="mode" data-mode="recall">帮我回看过去</button></div>
                 <section class="response is-hidden" id="responseCard" aria-live="polite"><div class="response-label"><span class="pulse"></span>一声回声</div><p id="responseText"></p><div class="response-actions"><button class="secondary" id="saveButton">留下这声回声</button><button class="text-button" id="quietResponseButton">先安静一会儿</button></div></section>
@@ -116,6 +116,33 @@
       $('.screen').addEventListener('click',e=>{if(!e.target.closest('.more')&&!e.target.closest('.floating-menu'))closeMenu()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMenu();closeSettings()}});
       document.body.dataset.theme=state.theme;document.body.dataset.hand=state.hand;setTheme(state.theme);setHand(state.hand);$('#reminderToggle').checked=state.reminders;$('#historyToggle').checked=state.history;setInterval(()=>{const d=new Date();$('#liveTime').textContent=d.toTimeString().slice(0,5)},30000);
     })();
+  </script>
+  <script type="module">
+    import { LiquidGlass } from './liquidglass.js';
+    const glassRoot = document.querySelector('.hero-inner');
+    const composerGlass = document.querySelector('.composer');
+    if (glassRoot && composerGlass && 'WebGLRenderingContext' in window) {
+      composerGlass.dataset.config = JSON.stringify({
+        blurAmount: 0.18,
+        refraction: 0.58,
+        chromAberration: 0.035,
+        edgeHighlight: 0.16,
+        specular: 0.22,
+        fresnel: 0.72,
+        cornerRadius: 22,
+        zRadius: 24,
+        opacity: 0.92,
+        saturation: 0.08,
+        tintStrength: 0.08,
+        brightness: 0.02,
+        shadowOpacity: 0.26,
+        shadowSpread: 12,
+        shadowOffsetY: 4
+      });
+      LiquidGlass.init({ root: glassRoot, glassElements: [composerGlass] }).catch(() => {
+        composerGlass.classList.add('liquidglass-fallback');
+      });
+    }
   </script>
 </body>
 </html>

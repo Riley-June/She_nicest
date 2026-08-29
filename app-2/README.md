@@ -26,6 +26,7 @@ python3 -m http.server 8080
 - 图片、音频和视频入口已预留
 - 所有交互数据保存在浏览器本地，无需后端即可体验
 - 页面背景使用 `trajectory-bg.mp4`，打开入口页面时会自动静音循环播放
+- 此刻输入卡片接入本地构建的 LiquidGlass WebGL 渲染，提供折射、边缘高光和磨砂效果
 
 ## 设计约束
 
@@ -33,3 +34,4 @@ python3 -m http.server 8080
 - 不默认发送主动提醒
 - 当前页面入口为 `prototype/index.html`，视觉和交互集中在单文件中，便于部署和预览
 - 目前 AI 回复为本地占位逻辑，接入真实模型时保留 `responseFor()` 的输入输出边界
+- `prototype/liquidglass.js` 为页面运行所需的本地构建产物，无需 CDN
